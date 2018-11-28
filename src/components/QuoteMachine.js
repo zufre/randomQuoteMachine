@@ -12,17 +12,24 @@ const QuoteMachine = ({ assignNewQuoteIndex, selectedQuote }) => (
   <Card>
     <CardContent>
       <Typography id="text">
-        {selectedQuote.quote} - <span id="author">{selectedQuote.author}</span>
+        <p style={{ fontSize: 20 + "px" }}>
+          {selectedQuote.quote} -{" "}
+          <span style={{ fontSize: 14 + "px" }} id="author">
+            {selectedQuote.author}
+          </span>
+        </p>
       </Typography>
     </CardContent>
     <CardActions>
-      <Button id="new-quote" size="small" onClick={assignNewQuoteIndex}>
+      <Button id="new-quote" size="medium" onClick={assignNewQuoteIndex}>
         Next Quote
       </Button>
       <IconButton
         id="tweet-quote"
         target="_blank"
-        href={`https://twitter.com/intent/tweet?text=${selectedQuote.quote}`}
+        href={encodeURI(
+          `https://twitter.com/intent/tweet?text=${selectedQuote.quote}`
+        )}
       >
         <FontAwesomeIcon icon={faTwitter} size="md" />
       </IconButton>
